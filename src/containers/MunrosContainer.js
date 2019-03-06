@@ -1,9 +1,11 @@
-import React from 'react'
+import React from 'react';
+import MunroList from "../components/MunroList";
+import MunroDetail from "../components/MunroDetail"
 
 class MunrosContainer extends React.Component { 
 
     constructor(props){
-        super(props)
+        super(props);
         this.state = {
             munros: [],
             currentMunro: null
@@ -17,12 +19,14 @@ class MunrosContainer extends React.Component {
        .then(data => this.setState({munros: data}))
     }
 
-    
-
+   
     render(){
         return (
             <div>
-                Munrocontainer!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                <MunroList
+                    munros={this.state.munros}
+                />
+                <MunroDetail/>
             </div>
         )
     }

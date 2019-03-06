@@ -1,20 +1,27 @@
 import React from "react";
+import MunroDetail from "../components/MunroDetail";
 
 const MunroList = (props) => {
-  <div>
-    {props.munros.map((munro, index) => {
-        return(
-            <Munro
-            key={index}
-            name={munro.name}
-            height={munro.height}
-            meaning={munro.meaning}
-            />
+    if(props.munros ==null || props.munros.length ===0){
+        return <p>Finding Munros...</p>;
+    }
+
+    const munros = props.munros.map((munro, index) => {
+        return (
+        <MunroDetail 
+        key={index}
+        name={munro.name}
+        height={munro.height}
+        meaning={munro.meaning}
+         />
         )
-
-    })}
-  </div>
-
+    })
+    console.log(munros)
+    return (
+     <div>
+         {munros}
+     </div>
+    )
 }
 
 export default MunroList;
